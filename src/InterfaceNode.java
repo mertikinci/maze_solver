@@ -1,5 +1,6 @@
 
-import java.util.Collection;
+import java.util.*;
+
 
 
 public interface InterfaceNode {

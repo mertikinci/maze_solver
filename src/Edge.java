@@ -1,3 +1,4 @@
+import java.util.*;
 
 public class Edge implements InterfaceEdge {
 
