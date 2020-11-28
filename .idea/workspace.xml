@@ -2,10 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="47cc89b0-95a4-4e56-bf9e-79c548cff9d9" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/InterfaceMazeSolver.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/MazeSolver.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Edge.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Edge.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/InterfaceEdge.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/InterfaceEdge.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/InterfaceNode.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/InterfaceNode.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -15,8 +14,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Interface" />
         <option value="Class" />
+        <option value="Interface" />
       </list>
     </option>
   </component>
@@ -37,6 +36,20 @@
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.0" />
   </component>
+  <component name="RunManager">
+    <configuration name="MazeSolver" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="MazeSolver" />
+      <module name="maze_solver" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.MazeSolver" />
+      </list>
+    </recent_temporary>
+  </component>
   <component name="SvnConfiguration">
     <configuration />
   </component>
@@ -55,13 +68,33 @@
       <screen x="0" y="0" width="1680" height="1050" />
     </state>
     <state x="440" y="190" key="#Project_Structure/0.0.1680.1050@0.0.1680.1050" timestamp="1606512870424" />
-    <state x="653" y="241" key="#com.intellij.ide.util.MemberChooser" timestamp="1606521927132">
+    <state x="304" y="187" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1606598124419">
       <screen x="0" y="0" width="1680" height="1050" />
     </state>
-    <state x="653" y="241" key="#com.intellij.ide.util.MemberChooser/0.0.1680.1050@0.0.1680.1050" timestamp="1606521927132" />
+    <state x="304" y="187" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1680.1050@0.0.1680.1050" timestamp="1606598124419" />
+    <state x="653" y="241" key="#com.intellij.ide.util.MemberChooser" timestamp="1606603989675">
+      <screen x="0" y="0" width="1680" height="1050" />
+    </state>
+    <state x="653" y="241" key="#com.intellij.ide.util.MemberChooser/0.0.1680.1050@0.0.1680.1050" timestamp="1606603989675" />
     <state x="578" y="279" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1606515785636">
       <screen x="0" y="0" width="1680" height="1050" />
     </state>
     <state x="578" y="279" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1680.1050@0.0.1680.1050" timestamp="1606515785636" />
+    <state width="1638" height="135" key="GridCell.Tab.0.bottom" timestamp="1606603568622">
+      <screen x="0" y="0" width="1680" height="1050" />
+    </state>
+    <state width="1638" height="135" key="GridCell.Tab.0.bottom/0.0.1680.1050@0.0.1680.1050" timestamp="1606603568622" />
+    <state width="1638" height="135" key="GridCell.Tab.0.center" timestamp="1606603568620">
+      <screen x="0" y="0" width="1680" height="1050" />
+    </state>
+    <state width="1638" height="135" key="GridCell.Tab.0.center/0.0.1680.1050@0.0.1680.1050" timestamp="1606603568620" />
+    <state width="1638" height="135" key="GridCell.Tab.0.left" timestamp="1606603568620">
+      <screen x="0" y="0" width="1680" height="1050" />
+    </state>
+    <state width="1638" height="135" key="GridCell.Tab.0.left/0.0.1680.1050@0.0.1680.1050" timestamp="1606603568620" />
+    <state width="1638" height="135" key="GridCell.Tab.0.right" timestamp="1606603568621">
+      <screen x="0" y="0" width="1680" height="1050" />
+    </state>
+    <state width="1638" height="135" key="GridCell.Tab.0.right/0.0.1680.1050@0.0.1680.1050" timestamp="1606603568621" />
   </component>
 </project>
