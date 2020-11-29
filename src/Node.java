@@ -8,7 +8,8 @@ public class Node implements InterfaceNode {
     private boolean selected = false;
     private boolean obstacle = false;
 
-    private final Collection<InterfaceEdge> edges = new ArrayList<InterfaceEdge>();
+    private Node parent;
+    private final Collection<InterfaceNode> children = new ArrayList<InterfaceNode>();
     private InterfaceNode predecessor;
     private int cost = 0;
     private int heuristic = 0;
@@ -70,20 +71,29 @@ public class Node implements InterfaceNode {
         this.selected = selected;
     }
 
-    public boolean addEdge(InterfaceEdge edge) {
+    public boolean addChild(InterfaceNode child) {
 
-        return this.edges.add(edge);
+        return this.children.add(child);
     }
 
-    public boolean removeEdge(InterfaceEdge edge) {
+    public boolean removeChild(InterfaceEdge child) {
 
-        return this.edges.remove(edge);
+        return this.children.remove(child);
     }
 
     @Override
-    public Collection<InterfaceEdge> getEdges() {
-        return this.edges;
+    public Collection<InterfaceNode> getChildren() {
+        return this.children;
     }
+
+    public Node getParent(){
+        return parent;
+    }
+
+    public void setParent(Node parent){
+        this.parent = parent;
+    }
+
 
 
     @Override

@@ -5,7 +5,7 @@ import java.util.*;
 
 public interface InterfaceNode {
 
-    Collection<InterfaceEdge> getEdges();
+    Collection<InterfaceNode> getChildren();
 
     InterfaceNode getPredecessor();
 
@@ -25,6 +25,9 @@ public interface InterfaceNode {
 
     public boolean isSelected();
 
+    public Node getParent();
+
+    public void  setParent(Node parent);
 
     public void setSelected(boolean selected);
 
