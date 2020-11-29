@@ -4,7 +4,6 @@ public class MazeSolver implements InterfaceMazeSolver{
 
 
     private Node[][] matrix;
-    //private Collection<InterfaceEdge> edges = new ArrayList<InterfaceEdge>();
     private int startX;
     private int startY;
     private int endX;
@@ -20,22 +19,80 @@ public class MazeSolver implements InterfaceMazeSolver{
         this.endX = endX;
         this.endY=endY;
 
-        for(int i = 0; i<matrix.length;i++){ // init nodes
-            for(int j=0;j<matrix[0].length;j++){
-                matrix[i][j] = new Node();
-            }
-        }
 
         for(int i = 0; i<matrix.length;i++){ // obstacle ya da değil init
             for(int j=0;j<matrix[0].length;j++){
+                matrix[i][j] = new Node();
+                matrix[i][j].setX(i);
+                matrix[i][j].setY(j);
                 matrix[i][j].setObstacle(arr[i][j]);
             }
         }
 
+        setHeuristic();
         setConnections();
 
-        //System.out.println(matrix[3][1].getChildren().size());
 
+
+        System.out.println(matrix[3][1].getChildren().size());
+        System.out.println(matrix[3][3].getHeuristic());
+        System.out.println(matrix[3][2].getHeuristic());
+        System.out.println(matrix[0][0].getHeuristic());
+
+        ArrayList<Node> last = searchPath();
+        for (Node nodes : last){
+            System.out.print(nodes.getX()+" "+nodes.getY()+" --> ");
+
+        }
+
+
+
+
+
+    }
+
+    public ArrayList<Node> searchPath(){
+
+        HashMap<Node,Integer> visited = new HashMap<Node, Integer>();
+        ArrayList<Node> potential = new ArrayList<Node>();
+        ArrayList<Node> path = new ArrayList<Node>();
+
+
+        boolean cont = true;
+        Node temp = matrix[startX][startY];
+        int minHeuristic = 99999;
+
+        while (cont){
+
+            visited.put(temp,temp.getHeuristic());
+            temp.getChildren().forEach(child -> {
+                if(!visited.containsKey(child)){
+                    potential.add(child);
+                }
+            });
+            for (Node child : potential){
+                if(child.getHeuristic()<minHeuristic){
+                    minHeuristic = child.getHeuristic();
+                }
+            }
+            for (Node child : potential){
+                if(child.getHeuristic()==minHeuristic){
+                    temp=child;
+                    potential.remove(child);
+                }
+
+            }
+            if(temp.getX()==endX && temp.getY()==endY){
+                path.add(temp);
+                while(!temp.getParent().equals(matrix[startX][startY])){
+                    path.add(temp.getParent());
+                    temp=temp.getParent();
+                }
+                path.add(temp.getParent());
+                cont = false;
+            }
+        }
+        return path;
     }
 
     public void setConnections(){
@@ -154,7 +211,7 @@ public class MazeSolver implements InterfaceMazeSolver{
 
                 }
                 else { // orta kare
-                    System.out.println(""+i+" "+j);
+                    //System.out.println(""+i+" "+j);
 
                     if(!matrix[i+1][j].isObstacle()){ // orta kare altı
                         matrix[i][j].addChild(matrix[i+1][j]);
@@ -185,6 +242,14 @@ public class MazeSolver implements InterfaceMazeSolver{
         }
 
     }
+    public void setRoadCost(){
+        for(int i = 0; i<matrix.length;i++){
+            for(int j=0;j<matrix[0].length;j++) {
+                matrix[i][j].setCost(Math.abs(i-startX) + Math.abs(j-startY));
+            }
+        }
+
+    }
 
     public static void main(String args[]){  // tryout dummy main
         boolean arr[][] = new boolean[4][4];
@@ -193,15 +258,16 @@ public class MazeSolver implements InterfaceMazeSolver{
                 arr[i][j]=false;
             }
         }
+
         arr[2][1]=true;
         arr[2][2]=true;
-        arr[3][2]=true;
         arr[0][3]=true;
         arr[0][1]=true;
         arr[1][1]=true;
-        arr[0][0]=true;
 
-        MazeSolver m = new MazeSolver(arr,0,0,2,2);
+
+
+        MazeSolver m = new MazeSolver(arr,0,0,0,2);
 
 
 

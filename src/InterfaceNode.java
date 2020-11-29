@@ -5,11 +5,11 @@ import java.util.*;
 
 public interface InterfaceNode {
 
-    Collection<InterfaceNode> getChildren();
+    Collection<Node> getChildren();
 
-    InterfaceNode getPredecessor();
+    Node getPredecessor();
 
-    void setPredecessor(InterfaceNode node);
+    void setPredecessor(Node node);
 
     public boolean isOpen();
 

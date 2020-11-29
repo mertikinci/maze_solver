@@ -7,10 +7,12 @@ public class Node implements InterfaceNode {
     private boolean visited = false;
     private boolean selected = false;
     private boolean obstacle = false;
+    private int x;
+    private int y;
 
     private Node parent;
-    private final Collection<InterfaceNode> children = new ArrayList<InterfaceNode>();
-    private InterfaceNode predecessor;
+    private final Collection<Node> children = new ArrayList<Node>();
+    private Node predecessor;
     private int cost = 0;
     private int heuristic = 0;
 
@@ -24,6 +26,20 @@ public class Node implements InterfaceNode {
         obstacle = false;
     }
 
+    public void setX(int x){
+        this.x=x;
+
+    }
+    public void setY(int y){
+        this.y=y;
+
+    }
+    public int getX(){
+        return x;
+    }
+    public int getY(){
+        return y;
+    }
 
     @Override
     public boolean isOpen() {
@@ -71,18 +87,15 @@ public class Node implements InterfaceNode {
         this.selected = selected;
     }
 
-    public boolean addChild(InterfaceNode child) {
+    public boolean addChild(Node child) {
 
         return this.children.add(child);
     }
 
-    public boolean removeChild(InterfaceEdge child) {
 
-        return this.children.remove(child);
-    }
 
     @Override
-    public Collection<InterfaceNode> getChildren() {
+    public Collection<Node> getChildren() {
         return this.children;
     }
 
@@ -97,13 +110,13 @@ public class Node implements InterfaceNode {
 
 
     @Override
-    public InterfaceNode getPredecessor() {
+    public Node getPredecessor() {
         return predecessor;
     }
 
 
     @Override
-    public void setPredecessor(InterfaceNode node) {
+    public void setPredecessor(Node node) {
         this.predecessor = node;
     }
 
