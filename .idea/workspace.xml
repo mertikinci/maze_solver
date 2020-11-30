@@ -3,14 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="47cc89b0-95a4-4e56-bf9e-79c548cff9d9" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/maze_solver/Edge.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/maze_solver/InterfaceEdge.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/maze_solver/InterfaceNode.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/maze_solver/InterfaceNode.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/maze_solver/MazeSolver.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/maze_solver/MazeSolver.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/maze_solver/Node.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/maze_solver/Node.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/InterfaceNode.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/InterfaceNode.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/MazeSolver.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/MazeSolver.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Node.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Node.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -86,21 +80,21 @@
       <screen x="0" y="0" width="1680" height="1050" />
     </state>
     <state x="578" y="279" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1680.1050@0.0.1680.1050" timestamp="1606644446955" />
-    <state width="1638" height="224" key="GridCell.Tab.0.bottom" timestamp="1606680402767">
+    <state width="1638" height="98" key="GridCell.Tab.0.bottom" timestamp="1606769942740">
       <screen x="0" y="0" width="1680" height="1050" />
     </state>
-    <state width="1638" height="224" key="GridCell.Tab.0.bottom/0.0.1680.1050@0.0.1680.1050" timestamp="1606680402767" />
-    <state width="1638" height="224" key="GridCell.Tab.0.center" timestamp="1606680402765">
+    <state width="1638" height="98" key="GridCell.Tab.0.bottom/0.0.1680.1050@0.0.1680.1050" timestamp="1606769942740" />
+    <state width="1638" height="98" key="GridCell.Tab.0.center" timestamp="1606769942739">
       <screen x="0" y="0" width="1680" height="1050" />
     </state>
-    <state width="1638" height="224" key="GridCell.Tab.0.center/0.0.1680.1050@0.0.1680.1050" timestamp="1606680402765" />
-    <state width="1638" height="224" key="GridCell.Tab.0.left" timestamp="1606680402765">
+    <state width="1638" height="98" key="GridCell.Tab.0.center/0.0.1680.1050@0.0.1680.1050" timestamp="1606769942739" />
+    <state width="1638" height="98" key="GridCell.Tab.0.left" timestamp="1606769942738">
       <screen x="0" y="0" width="1680" height="1050" />
     </state>
-    <state width="1638" height="224" key="GridCell.Tab.0.left/0.0.1680.1050@0.0.1680.1050" timestamp="1606680402765" />
-    <state width="1638" height="224" key="GridCell.Tab.0.right" timestamp="1606680402766">
+    <state width="1638" height="98" key="GridCell.Tab.0.left/0.0.1680.1050@0.0.1680.1050" timestamp="1606769942738" />
+    <state width="1638" height="98" key="GridCell.Tab.0.right" timestamp="1606769942739">
       <screen x="0" y="0" width="1680" height="1050" />
     </state>
-    <state width="1638" height="224" key="GridCell.Tab.0.right/0.0.1680.1050@0.0.1680.1050" timestamp="1606680402766" />
+    <state width="1638" height="98" key="GridCell.Tab.0.right/0.0.1680.1050@0.0.1680.1050" timestamp="1606769942739" />
   </component>
 </project>
