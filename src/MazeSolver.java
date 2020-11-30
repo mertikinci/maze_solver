@@ -1,7 +1,7 @@
 import java.util.*;
 
 public class MazeSolver implements InterfaceMazeSolver{
-    
+
     private Node[][] matrix;
     private int startX;
     private int startY;
@@ -24,7 +24,6 @@ public class MazeSolver implements InterfaceMazeSolver{
                 matrix[i][j].setObstacle(arr[i][j]);
             }
         }
-
         setHeuristic();
         setConnections();
         Stack<Node> last = searchPath();
@@ -68,14 +67,11 @@ public class MazeSolver implements InterfaceMazeSolver{
                 if(child.getHeuristic()==minHeuristic){
                     temp=child;
                 }
-
             }
             //System.out.println("P P P P P P P");
             potential.remove(temp);
             //System.out.println(temp.getX()+" "+temp.getY());
-
             //System.out.println("P P P P P P P P ");
-
             if(temp.getX()==endX && temp.getY()==endY){
                 System.out.println("FOUND!");
                 cont=false;
@@ -94,12 +90,10 @@ public class MazeSolver implements InterfaceMazeSolver{
         /*
         for(Node node : visited.keySet()){
             System.out.println(node.getX()+" "+node.getY());
-
         }
         System.out.println("- - -- - - - -- -- -- - - -  --");
         for(Node node : potential){
             System.out.println(node.getX()+" "+node.getY());
-
         }
          */
         return path;

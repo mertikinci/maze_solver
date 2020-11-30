@@ -3,7 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="47cc89b0-95a4-4e56-bf9e-79c548cff9d9" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/maze_solver/MazeSolver.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/maze_solver/MazeSolver.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/InterfaceMazeSolver.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/InterfaceMazeSolver.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/MazeSolver.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/MazeSolver.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
