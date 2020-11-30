@@ -3,6 +3,8 @@ import java.util.*;
 public class MazeSolver implements InterfaceMazeSolver{
 
     private Node[][] matrix;
+    private HashMap<Node,Integer> visited;
+    private Stack<Node> path;
     private int startX;
     private int startY;
     private int endX;
@@ -26,15 +28,24 @@ public class MazeSolver implements InterfaceMazeSolver{
         }
         setHeuristic();
         setConnections();
-        Stack<Node> last = searchPath();
-        for (Node nodes : last){
-            System.out.print(nodes.getX()+" "+nodes.getY()+" --> ");
+        path = searchPath();
+
+        for (Node nodes : path){
+            System.out.print(" --> "+nodes.getX()+" "+nodes.getY());
+
         }
+    }
+
+    public HashMap<Node,Integer> getVisited (){
+        return visited;
+    }
+    public Stack<Node> getPath(){
+        return path;
     }
 
     public Stack<Node> searchPath(){
 
-        HashMap<Node,Integer> visited = new HashMap<Node, Integer>();
+        visited = new HashMap<Node, Integer>();
         ArrayList<Node> potential = new ArrayList<Node>();
         Stack<Node> path = new Stack<Node>();
         boolean cont = true;
@@ -228,6 +239,8 @@ public class MazeSolver implements InterfaceMazeSolver{
         arr[3][3]=true;
         arr[4][3]=true;
         arr[0][3]=true;
+
+
         MazeSolver m = new MazeSolver(arr,2,1,2,4);
     }
 }
