@@ -1,4 +1,3 @@
-
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Stack;
@@ -6,7 +5,7 @@ import java.util.Stack;
 public class MazeSolver implements InterfaceMazeSolver {
 
     private final Node[][] matrix;
-    private HashMap<Node, Integer> visited;
+    private HashMap<Node, Double> visited;
     private final Stack<Node> path;
     private final int startX;
     private final int startY;
@@ -14,7 +13,7 @@ public class MazeSolver implements InterfaceMazeSolver {
     private final int endY;
     ArrayList<Node> potential;
 
-    public MazeSolver(boolean[][] arr, int startX, int startY, int endX, int endY) {
+    public MazeSolver(boolean[][] arr,int heuristicNo, int startX, int startY, int endX, int endY) {
         matrix = new Node[arr.length][arr[0].length];
         this.startX = startX;
         this.startY = startY;
@@ -29,11 +28,23 @@ public class MazeSolver implements InterfaceMazeSolver {
                 matrix[i][j].setObstacle(arr[i][j]);
             }
         }
-        setHeuristic();
+        if(heuristicNo==0){
+            setHeuristicManhattan();
+        }
+        else if(heuristicNo==1){
+            setHeuristicEuclidean();
+        }
+        else if(heuristicNo==2){
+            setHeuristicOctile();
+        }
+        else if(heuristicNo==3){
+            setHeuristicChebyshev();
+        }
+        else {
+            setHeuristicZero();
+        }
         setConnections();
         path = searchPath();
-        System.out.println(getPotential().size());
-        System.out.println(getVisited().size());
     }
     public ArrayList<Node> getVisited() {
         ArrayList<Node> visitedArraylist = new ArrayList<Node>();
@@ -50,7 +61,7 @@ public class MazeSolver implements InterfaceMazeSolver {
     }
     public Stack<Node> searchPath() {
 
-        visited = new HashMap<Node, Integer>();
+        visited = new HashMap<Node, Double>();
         potential = new ArrayList<Node>();
         Stack<Node> path = new Stack<Node>();
         boolean cont = true;
@@ -59,7 +70,7 @@ public class MazeSolver implements InterfaceMazeSolver {
         matrix[startX][startY].setCost(0);
 
         while (cont) {
-            int minCost = Integer.MAX_VALUE;
+            double minCost = Integer.MAX_VALUE;
             visited.put(temp, temp.getHeuristic());
             for (Node nodes : temp.getChildren()) {
                 if (!visited.containsKey(nodes)) {
@@ -200,11 +211,43 @@ public class MazeSolver implements InterfaceMazeSolver {
             }
         }
     }
-    public void setHeuristic() {
+    public void setHeuristicManhattan() {
         for (int i = 0; i < matrix.length; i++) {
             for (int j = 0; j < matrix[0].length; j++) {
                 matrix[i][j].setHeuristic(Math.abs(i - endX) + Math.abs(j - endY));
-                //matrix[i][j].setHeuristic(0); // djikstra
+
+            }
+        }
+    }
+    public void setHeuristicEuclidean() {
+        for (int i = 0; i < matrix.length; i++) {
+            for (int j = 0; j < matrix[0].length; j++) {
+                matrix[i][j].setHeuristic(Math.sqrt((i - endX)*(i - endX) + (j - endY)*(j - endY)));
+
+            }
+        }
+    }
+    public void setHeuristicOctile() {
+        for (int i = 0; i < matrix.length; i++) {
+            for (int j = 0; j < matrix[0].length; j++) {
+                matrix[i][j].setHeuristic(Math.max(Math.abs(i - endX),Math.abs(j - endY)));
+
+            }
+        }
+    }
+    public void setHeuristicChebyshev() {
+        for (int i = 0; i < matrix.length; i++) {
+            for (int j = 0; j < matrix[0].length; j++) {
+                matrix[i][j].setHeuristic((Math.max(Math.abs(i - endX) , Math.abs(j - endY)) + Math.sqrt(2)-1*Math.min(Math.abs(i - endX) , Math.abs(j - endY))));
+
+            }
+        }
+    }
+    public void setHeuristicZero() {
+        for (int i = 0; i < matrix.length; i++) {
+            for (int j = 0; j < matrix[0].length; j++) {
+                matrix[i][j].setHeuristic(Math.abs(i - endX) + Math.abs(j - endY));
+
             }
         }
     }
