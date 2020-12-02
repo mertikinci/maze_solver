@@ -1,3 +1,4 @@
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Stack;
@@ -31,6 +32,8 @@ public class MazeSolver implements InterfaceMazeSolver {
         setHeuristic();
         setConnections();
         path = searchPath();
+        System.out.println(getPotential().size());
+        System.out.println(getVisited().size());
     }
     public ArrayList<Node> getVisited() {
         ArrayList<Node> visitedArraylist = new ArrayList<Node>();
