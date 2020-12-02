@@ -14,7 +14,6 @@ public class MazeSolver implements InterfaceMazeSolver {
     ArrayList<Node> potential;
 
     public MazeSolver(boolean[][] arr, int startX, int startY, int endX, int endY) {
-        //System.out.println("constructer maze solver girdi.");
         matrix = new Node[arr.length][arr[0].length];
         this.startX = startX;
         this.startY = startY;
@@ -32,13 +31,7 @@ public class MazeSolver implements InterfaceMazeSolver {
         setHeuristic();
         setConnections();
         path = searchPath();
-
-//        for (Node nodes : path){
-//            System.out.print(" --> "+nodes.getX()+" "+nodes.getY());
-//
-//        }
     }
-
     public ArrayList<Node> getVisited() {
         ArrayList<Node> visitedArraylist = new ArrayList<Node>();
         for(Node nodes : visited.keySet()){
@@ -104,7 +97,6 @@ public class MazeSolver implements InterfaceMazeSolver {
         }
         return path;
     }
-
     public void setConnections() {
 
         for (int i = 0; i < matrix.length; i++) {
@@ -188,7 +180,6 @@ public class MazeSolver implements InterfaceMazeSolver {
                         matrix[i][j].addChild(matrix[i][j - 1]);
                     }
                 } else { // orta kare
-                    //System.out.println(""+i+" "+j);
 
                     if (!matrix[i + 1][j].isObstacle()) { // orta kare altı
                         matrix[i][j].addChild(matrix[i + 1][j]);
@@ -206,15 +197,12 @@ public class MazeSolver implements InterfaceMazeSolver {
             }
         }
     }
-
     public void setHeuristic() {
         for (int i = 0; i < matrix.length; i++) {
             for (int j = 0; j < matrix[0].length; j++) {
                 matrix[i][j].setHeuristic(Math.abs(i - endX) + Math.abs(j - endY));
                 //matrix[i][j].setHeuristic(0); // djikstra
-
             }
         }
     }
-
 }
