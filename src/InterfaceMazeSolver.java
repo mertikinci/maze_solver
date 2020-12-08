@@ -10,5 +10,5 @@ public interface InterfaceMazeSolver {
     void setHeuristicEuclidean();
 
 
-    Stack<Node> searchPath();
+    Stack<Node> searchPath(boolean algorithm);
 }

@@ -16,7 +16,7 @@ public class MazeSolver implements InterfaceMazeSolver {
     ArrayList<Node> potential;
     private int searchNo;
 
-    public MazeSolver(boolean[][] arr, int searchNo, int heuristicNo, int startX, int startY, int endX, int endY) {
+    public MazeSolver(boolean[][] arr, int searchNo, int heuristicNo, int startX, int startY, int endX, int endY) { //searchNo 0 ise A* 1 ise BestFirstSearch bşkaysa BFS yapar
         matrix = new Node[arr.length][arr[0].length];
         this.startX = startX;
         this.startY = startY;
@@ -34,7 +34,7 @@ public class MazeSolver implements InterfaceMazeSolver {
         }
         setConnections();
 
-        if (searchNo==0){ // AStar or Dijkstra
+        if (searchNo<2){ // AStar or Dijkstra
             if(heuristicNo==0){
                 setHeuristicManhattan();
             }
@@ -50,7 +50,12 @@ public class MazeSolver implements InterfaceMazeSolver {
             else {
                 setHeuristicZero();
             }
-            path = searchPath();
+            if(searchNo==0){
+                path = searchPath(true);
+            }
+            else{
+                path = searchPath(false);
+            }
         }
         else { // BFS
             path = searchPathBFS();
@@ -100,8 +105,7 @@ public class MazeSolver implements InterfaceMazeSolver {
                 }
             });
         }
-
-    return path;
+        return path;
     }
     public ArrayList<Node> getVisited() {
         if(searchNo==0){
@@ -121,7 +125,7 @@ public class MazeSolver implements InterfaceMazeSolver {
     public Stack<Node> getPath() {
         return path;
     }
-    public Stack<Node> searchPath() {
+    public Stack<Node> searchPath(boolean algorithm /* if true aStar else greedy BFS */ ) {
 
         visited = new HashMap<Node, Double>();
         potential = new ArrayList<Node>();
@@ -137,7 +141,9 @@ public class MazeSolver implements InterfaceMazeSolver {
             for (Node nodes : temp.getChildren()) {
                 if (!visited.containsKey(nodes)) {
                     nodes.setParent(temp);
-                    nodes.setCost(nodes.getParent().getCost()+1);
+                    if(algorithm){
+                        nodes.setCost(nodes.getParent().getCost()+1);
+                    }
                 }
             }
             temp.getChildren().forEach(child -> {
@@ -315,7 +321,7 @@ public class MazeSolver implements InterfaceMazeSolver {
     }
     public static void main(String args[]){
 
-        boolean[][] maze = new boolean[5][5];
+        boolean[][] maze = new boolean[32][32];
 
         for(int i =0;i<maze.length;i++){
             for(int j=0;j<maze[0].length;j++){
@@ -325,9 +331,25 @@ public class MazeSolver implements InterfaceMazeSolver {
         maze[0][2]=true;
         maze[1][1]=true;
         maze[2][2]=true;
-        maze[3][2]=true;
+        maze[13][2]=true;
+        maze[10][2]=true;
+        maze[11][1]=true;
+        maze[12][2]=true;
+        maze[31][2]=true;
+        maze[30][2]=true;
+        maze[13][1]=true;
+        maze[22][2]=true;
+        maze[16][2]=true;
+        maze[0][22]=true;
+        maze[1][12]=true;
+        maze[2][23]=true;
+        maze[3][23]=true;
+        maze[0][24]=true;
+        maze[1][15]=true;
+        maze[2][25]=true;
+        maze[3][25]=true;
 
-        MazeSolver m = new MazeSolver(maze,1,123,0,0,1,3);
+        MazeSolver m = new MazeSolver(maze,1,123,0,0,30,30);
         System.out.println("PATH NODES - - - - -");
         for(Node nodes : m.getPath()){
             System.out.println(nodes.getX()+" "+nodes.getY());
@@ -338,7 +360,8 @@ public class MazeSolver implements InterfaceMazeSolver {
         }
         System.out.println("POTENTIAL NODES - - - - -");
         for(Node nodes : m.getPath()){
-            System.out.println(nodes.getX()+" "+nodes.getY());
+            if(!m.getVisited().contains(nodes))
+                System.out.println(nodes.getX()+" "+nodes.getY());
         }
     }
 }
