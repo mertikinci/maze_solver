@@ -1,3 +1,5 @@
+package com.furkandolasik.mazepuzzle.solver;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Stack;
@@ -36,15 +38,12 @@ public class MazeSolver implements InterfaceMazeSolver {
 
         if (searchNo<2){ // AStar or Dijkstra
             if(heuristicNo==0){
-                setHeuristicManhattan();
-            }
-            else if(heuristicNo==1){
                 setHeuristicEuclidean();
             }
-            else if(heuristicNo==2){
+            else if(heuristicNo==1){
                 setHeuristicOctile();
             }
-            else if(heuristicNo==3){
+            else if(heuristicNo==2){
                 setHeuristicChebyshev();
             }
             else {
@@ -108,7 +107,7 @@ public class MazeSolver implements InterfaceMazeSolver {
         return path;
     }
     public ArrayList<Node> getVisited() {
-        if(searchNo==0){
+        if(searchNo < 2){
             ArrayList<Node> visitedArraylist = new ArrayList<Node>();
             for(Node nodes : visited.keySet()){
                 visitedArraylist.add(nodes);
@@ -125,6 +124,8 @@ public class MazeSolver implements InterfaceMazeSolver {
     public Stack<Node> getPath() {
         return path;
     }
+
+
     public Stack<Node> searchPath(boolean algorithm /* if true aStar else greedy BFS */ ) {
 
         visited = new HashMap<Node, Double>();
@@ -140,6 +141,7 @@ public class MazeSolver implements InterfaceMazeSolver {
             visited.put(temp, temp.getHeuristic());
             for (Node nodes : temp.getChildren()) {
                 if (!visited.containsKey(nodes)) {
+                    //if(nodes.getParent().equals(null)){
                     nodes.setParent(temp);
                     if(algorithm){
                         nodes.setCost(nodes.getParent().getCost()+1);
@@ -279,14 +281,6 @@ public class MazeSolver implements InterfaceMazeSolver {
             }
         }
     }
-    public void setHeuristicManhattan() {
-        for (int i = 0; i < matrix.length; i++) {
-            for (int j = 0; j < matrix[0].length; j++) {
-                matrix[i][j].setHeuristic(Math.abs(i - endX) + Math.abs(j - endY));
-
-            }
-        }
-    }
     public void setHeuristicEuclidean() {
         for (int i = 0; i < matrix.length; i++) {
             for (int j = 0; j < matrix[0].length; j++) {
@@ -349,7 +343,7 @@ public class MazeSolver implements InterfaceMazeSolver {
         maze[2][25]=true;
         maze[3][25]=true;
 
-        MazeSolver m = new MazeSolver(maze,1,123,0,0,30,30);
+        com.furkandolasik.mazepuzzle.solver.MazeSolver m = new com.furkandolasik.mazepuzzle.solver.MazeSolver(maze,1,123,0,0,30,30);
         System.out.println("PATH NODES - - - - -");
         for(Node nodes : m.getPath()){
             System.out.println(nodes.getX()+" "+nodes.getY());

@@ -3,7 +3,6 @@ import java.util.*;
 public interface InterfaceMazeSolver {
 
     void setConnections();
-    void setHeuristicManhattan();
     void setHeuristicZero();
     void setHeuristicChebyshev();
     void setHeuristicOctile();
